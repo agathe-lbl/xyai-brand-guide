@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI-Native — XY.AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1080px;
+    background: #0a0a0a;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 88px;
+    overflow: hidden;
+  }
+
+  /* Iridescent bot orb — top right, subtle */
+  .orb {
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #4B9EF5 0%, #7B6EF5 30%, #A855F7 55%, #F97316 90%);
+    filter: blur(2px);
+    opacity: 0.92;
+  }
+
+  .orb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 70% 70%, transparent 30%, rgba(10,10,10,0.6) 100%);
+  }
+
+  /* Subtle grain / glow behind text */
+  .card::before {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(75,158,245,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── TOP ROW ── */
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+  }
+
+  .wordmark {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
+
+  .wordmark-dot {
+    color: #4B9EF5;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-align: right;
+  }
+
+  /* ── HERO TEXT ── */
+  .hero {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+    margin-bottom: 60px;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg, #4B9EF5, #A855F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 28px;
+  }
+
+  .headline {
+    font-size: 108px;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -4px;
+    color: #ffffff;
+    margin-bottom: 28px;
+  }
+
+  .headline .strike {
+    color: rgba(255,255,255,0.35);
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.4);
+    text-decoration-thickness: 4px;
+    font-weight: 800;
+  }
+
+  .headline .accent {
+    background: linear-gradient(90deg, #4B9EF5 0%, #A855F7 60%, #F97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subhead {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.7);
+    max-width: 720px;
+    margin-top: 8px;
+  }
+
+  /* ── BOTTOM ROW ── */
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 28px;
+  }
+
+  .attr {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  .attr strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .gradient-bar {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #4B9EF5, #A855F7, #F97316);
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="orb"></div>
+
+  <!-- TOP -->
+  <div class="top-row">
+    <div class="wordmark">XY<span class="wordmark-dot">.</span>AI LABS</div>
+    <div class="eyebrow">AI-Native Leadership · 2026</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="label">What it means to be AI-Native</div>
+    <div class="headline">
+      <span class="strike">Manage</span> <span class="accent">Orchestrate.</span>
+    </div>
+    <div class="subhead">
+      Not a software upgrade. An operational and cultural redesign — where agents, humans, and decision layers run as one system.
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom-row">
+    <div class="attr">
+      <strong>Sam De Brouwer</strong>
+      CEO, XY.AI Labs
+    </div>
+    <div class="gradient-bar"></div>
+  </div>
+
+</div>
+</body>
+</html>
