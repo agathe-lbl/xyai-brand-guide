@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XY.AI Labs — Brand Guidelines</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --off-white: #F5F5F5;
+    --grey-100: #E5E5E5;
+    --grey-400: #999999;
+    --grey-700: #444444;
+    --grey-900: #111111;
+    --surface: #F8F7FF;
+    --surface-2: #FFFFFF;
+    --surface-3: #F0EEFF;
+    --bot-blue: #4B9EF5;
+    --bot-purple: #A855F7;
+    --bot-orange: #F97316;
+    --gradient: linear-gradient(135deg, #4B9EF5 0%, #A855F7 50%, #F97316 100%);
+    --sidebar-w: 220px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--surface);
+    color: #111111;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: #111111;
+    border-right: 2px solid #111111;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidebar-logo {
+    padding: 0 24px 28px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-logo .wordmark {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+
+  .sidebar-logo .sub {
+    font-size: 10px;
+    color: #888888;
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  .sidebar nav { flex: 1; }
+
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: #888888;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.15s, background 0.15s;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar a:hover { color: #FFFFFF; background: #222222; }
+  .sidebar a.active { color: #FFFFFF; border-left-color: #A855F7; background: #1a1a1a; }
+
+  .sidebar a .num {
+    font-size: 10px;
+    color: #555555;
+    font-weight: 400;
+    min-width: 18px;
+  }
+
+  /* ── MAIN ── */
+  main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    min-height: 100vh;
+    padding: 80px 80px 80px;
+    border-bottom: 2px solid #111111;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #A855F7;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 2px;
+    background: #A855F7;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #111111;
+    margin-bottom: 32px;
+    max-width: 800px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #444444;
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+
+  /* ── WELCOME ── */
+  #welcome {
+    background: var(--black);
+    min-height: 100vh;
+    justify-content: flex-end;
+    padding-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .welcome-bot {
+    position: absolute;
+    top: 50%;
+    right: 80px;
+    transform: translateY(-50%);
+    width: 320px;
+    height: 320px;
+    object-fit: contain;
+    opacity: 0.9;
+  }
+
+  .gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── THE BRAND ── */
+  .frame-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .frame-card {
+    background: #FFFFFF;
+    padding: 36px 28px;
+    border: 1.5px solid #111111;
+  }
+
+  .frame-card .frame-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: #E8E0FF;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .frame-card .frame-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 10px;
+  }
+
+  .frame-card .frame-body {
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.6;
+  }
+
+  .frame-card .frame-vs {
+    font-size: 11px;
+    color: #A855F7;
+    margin-top: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── LOGO ── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .logo-card {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 1.5px solid #111111;
+    min-height: 260px;
+  }
+
+  .logo-card.light { background: var(--white); }
+  .logo-card.dark { background: var(--black); }
+  .logo-card.grey { background: #F0F0F0; }
+  .logo-card.mid { background: #333333; }
+
+  .logo-card img {
+    max-width: 280px;
+    max-height: 120px;
+    object-fit: contain;
+  }
+
+  .logo-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-400);
+  }
+
+  .logo-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .rule-block h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111111;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #111111;
+    padding-bottom: 8px;
+  }
+
+  .rule-block ul {
+    list-style: none;
+  }
+
+  .rule-block li {
+    font-size: 13px;
+    color: #444444;
+    padding: 8px 0;
+    border-bottom: 1px solid #CCCCCC;
+    line-height: 1.5;
+  }
+
+  .rule-block li::before { content: '— '; color: #888888; }
+
+  .do li::before { content: '✓  '; color: #4ade80; }
+  .dont li::before { content: '✕  '; color: #f87171; }
+
+  /* ── COLOUR ── */
+  .colour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+    border: 1.5px solid #111111;
+  }
+
+  .swatch {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    border: 1.5px solid #111111;
+  }
+
+  .swatch-name {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .swatch-hex {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.6;
+    font-family: 'Courier New', monospace;
+  }
+
+  .swatch-note {
+    font-size: 11px;
+    opacity: 0.5;
+    margin-top: 2px;
+  }
+
+  .swatch.s-black { background: #000; }
+  .swatch.s-white { background: #fff; color: #000; border-color: #ddd; }
+  .swatch.s-gradient {
+    background: var(--gradient);
+  }
+  .swatch.s-blue { background: #4B9EF5; }
+  .swatch.s-purple { background: #A855F7; }
+  .swatch.s-orange { background: #F97316; }
+
+  /* ── BOT ── */
+  .bot-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 48px;
+  }
+
+  .bot-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111111;
+    border: 1px solid #DDDDDD;
+    padding: 60px;
+    border-radius: 4px;
+  }
+
+  .bot-display img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .type-specimen {
+    margin-top: 48px;
+    border-top: 2px solid #111111;
+  }
+
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid #CCCCCC;
+  }
+
+  .type-meta {
+    min-width: 160px;
+    flex-shrink: 0;
+  }
+
+  .type-meta .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--grey-400);
+  }
+
+  .type-meta .spec {
+    font-size: 11px;
+    color: var(--grey-700);
+    margin-top: 4px;
+  }
+
+  .type-sample { color: #111111; }
+
+  /* ── VOICE ── */
+  .register-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .register-card {
+    background: #FFFFFF;
+    border: 1.5px solid #111111;
+    padding: 28px;
+  }
+
+  .register-card .reg-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: #111111;
+  }
+
+  .register-card .reg-in {
+    font-size: 12px;
+    color: #1a7a45;
+    margin-bottom: 6px;
+  }
+
+  .register-card .reg-out {
+    font-size: 12px;
+    color: #b84040;
+  }
+
+  .phrase-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .phrase-tag {
+    background: #FFFFFF;
+    border: 1.5px solid #111111;
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #111111;
+  }
+
+  /* ── PRODUCT LANGUAGE ── */
+  .term-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 13px;
+  }
+
+  .term-table th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-700);
+    font-weight: 600;
+    padding: 12px 16px;
+    border-bottom: 1px solid #222;
+  }
+
+  .term-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #1a1a1a;
+    color: var(--grey-400);
+    vertical-align: top;
+  }
+
+  .term-table td:first-child { color: var(--white); font-weight: 500; }
+
+  .term-use { color: #4ade80 !important; }
+  .term-avoid { color: #f87171 !important; }
+
+  /* ── IMAGERY ── */
+  .imagery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .imagery-card {
+    background: var(--surface-2);
+    border: 1px solid #222;
+    padding: 32px 24px;
+  }
+
+  .imagery-card .img-icon { font-size: 28px; margin-bottom: 14px; }
+
+  .imagery-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .imagery-card p {
+    font-size: 12px;
+    color: var(--grey-400);
+    line-height: 1.6;
+  }
+
+  /* ── MOTION ── */
+  .motion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .motion-card {
+    background: var(--surface-2);
+    border: 1px solid #222;
+    padding: 40px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .motion-card .motion-icon { font-size: 36px; flex-shrink: 0; }
+
+  .motion-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .motion-card p { font-size: 12px; color: var(--grey-400); line-height: 1.5; }
+
+  /* ── DO / DON'T ── */
+  .dodont-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .dodont-col { border: 1.5px solid #111111; background: #FFFFFF; }
+
+  .dodont-header {
+    padding: 20px 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid #111111;
+  }
+
+  .dodont-header.do { color: #4ade80; }
+  .dodont-header.dont { color: #f87171; }
+
+  .dodont-item {
+    padding: 16px 28px;
+    font-size: 13px;
+    color: #333333;
+    border-bottom: 1px solid #EEEEEE;
+    line-height: 1.5;
+  }
+
+  .dodont-item .marker { margin-right: 10px; }
+  .dodont-col.do-col .marker { color: #4ade80; }
+  .dodont-col.dont-col .marker { color: #f87171; }
+
+  /* ── SIGN-OFF ── */
+  #signoff {
+    background: var(--black);
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .signoff-inner { max-width: 700px; }
+
+  .pending-list {
+    margin-top: 32px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+  }
+
+  .pending-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 13px;
+  }
+
+  .pending-item .status {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .status-pending { background: #2a1f00; color: #f59e0b; }
+  .status-done { background: #0a2a1a; color: #4ade80; }
+
+  .pending-item .item-text { color: var(--grey-400); line-height: 1.5; }
+
+  .footer-line {
+    margin-top: 48px;
+    font-size: 11px;
+    color: var(--grey-700);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="wordmark">XY.AI Labs</div>
+    <div class="sub">Brand Guidelines · 2026</div>
+  </div>
+  <nav>
+    <a href="#welcome"><span class="num">01</span> Welcome</a>
+    <a href="#thebrand"><span class="num">02</span> The Brand</a>
+    <a href="#voice"><span class="num">03</span> Voice & Tone</a>
+    <a href="#product"><span class="num">04</span> Product Language</a>
+    <a href="#logo"><span class="num">05</span> Logo</a>
+    <a href="#colour"><span class="num">06</span> Colour</a>
+    <a href="#typography"><span class="num">07</span> Typography</a>
+    <a href="#imagery"><span class="num">08</span> Imagery</a>
+    <a href="#motion"><span class="num">09</span> Motion</a>
+    <a href="#do"><span class="num">10</span> Do</a>
+    <a href="#dont"><span class="num">11</span> Don't</a>
+    <a href="#signoff"><span class="num">12</span> Sign-off</a>
+  </nav>
+</aside>
+
+<main>
+
+<!-- 01 WELCOME -->
+<section class="section" id="welcome">
+  <div class="welcome-bot" style="width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,#4B9EF5 0%,#A855F7 50%,#F97316 100%);display:flex;align-items:center;justify-content:center;position:absolute;top:50%;right:80px;transform:translateY(-50%);opacity:0.85;"><div style="display:flex;gap:16px;"><div style="width:22px;height:28px;background:#fff;border-radius:4px;"></div><div style="width:22px;height:28px;background:#fff;border-radius:4px;"></div></div></div>
+  <div class="section-label"><span class="num">01</span> Welcome</div>
+  <h1 class="section-title">The AI native<br><span class="gradient-text">company for<br>healthcare.</span></h1>
+  <p class="section-body">This document defines the visual identity, voice, and content conventions for XY.AI Labs. It is a living system — sections marked ⚠️ are pending final confirmation from Sam.</p>
+  <p class="section-body" style="margin-top: -24px; font-size: 13px;">Built by Agathe @ Modjo · May 2026</p>
+</section>
+
+<!-- 02 THE BRAND -->
+<section class="section" id="thebrand">
+  <div class="section-label"><span class="num">02</span> The Brand</div>
+  <h2 class="section-title">Three locked<br>frame shifts.</h2>
+  <p class="section-body">These are non-negotiable. They define how XY.AI Labs is positioned in every context — from LinkedIn posts to investor decks. Never deviate from these frames.</p>
+
+  <div class="frame-grid">
+    <div class="frame-card">
+      <div class="frame-num">01</div>
+      <div class="frame-title">AI-native company.</div>
+      <div class="frame-body">XY.AI is an AI company that operates in healthcare — not a healthcare company that uses AI.</div>
+      <div class="frame-vs">Not a healthcare company · Not an AI-powered tool</div>
+    </div>
+    <div class="frame-card">
+      <div class="frame-num">02</div>
+      <div class="frame-title">Compiled AI.</div>
+      <div class="frame-body">Agents are trained and compiled — not LLMs prompted at runtime. This is the central technical differentiator.</div>
+      <div class="frame-vs">Not LLM-at-runtime · Not prompt engineering</div>
+    </div>
+    <div class="frame-card">
+      <div class="frame-num">03</div>
+      <div class="frame-title">Tasks, not jobs.</div>
+      <div class="frame-body">Reframe automation as eliminating task-level friction — not replacing human roles. People stay. Busywork doesn't.</div>
+      <div class="frame-vs">Not "replacing jobs" · Not "eliminating roles"</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 VOICE & TONE -->
+<section class="section" id="voice">
+  <div class="section-label"><span class="num">03</span> Voice & Tone</div>
+  <h2 class="section-title">How Sam<br>sounds.</h2>
+  <p class="section-body">Authoritative without arrogance. Technical precision translated into human stakes. One post, one idea, one register — always.</p>
+
+  <div class="register-grid">
+    <div class="register-card">
+      <div class="reg-title">🎯 Thought Leadership</div>
+      <div class="reg-in">In: AI-native conviction, industry vision, continuous learning</div>
+      <div class="reg-out">Out: token maxing, product, partner names</div>
+    </div>
+    <div class="register-card">
+      <div class="reg-title">🔧 Product / Pricing</div>
+      <div class="reg-in">In: Compiled AI mechanics, flat-fee vs token, tasks not jobs</div>
+      <div class="reg-out">Out: competitors by name, vulnerability</div>
+    </div>
+    <div class="register-card">
+      <div class="reg-title">💛 Personal</div>
+      <div class="reg-in">In: 15-year journey, caregiver story, what drives Sam</div>
+      <div class="reg-out">Out: metrics, product pitch</div>
+    </div>
+    <div class="register-card">
+      <div class="reg-title">⚙️ Technical</div>
+      <div class="reg-in">In: Token maxing nuance, compiled AI internals, orchestration</div>
+      <div class="reg-out">Out: personal vulnerability</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px;">
+    <div class="section-label" style="margin-bottom: 16px;">Signature phrases — never alter these</div>
+    <div class="phrase-list">
+      <div class="phrase-tag">"AI-native"</div>
+      <div class="phrase-tag">"Tasks, not jobs"</div>
+      <div class="phrase-tag">"Compiled AI"</div>
+      <div class="phrase-tag">"Execution layer"</div>
+      <div class="phrase-tag">"The long tail of healthcare"</div>
+      <div class="phrase-tag">"15 years at the edge"</div>
+      <div class="phrase-tag">"Continuous learning"</div>
+      <div class="phrase-tag">"We build on the shoulders of giants"</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRODUCT LANGUAGE -->
+<section class="section" id="product">
+  <div class="section-label"><span class="num">04</span> Product Language</div>
+  <h2 class="section-title">Name it<br>right.</h2>
+  <p class="section-body">Exact capitalization, approved terminology, and prohibited language. These are fixed — not stylistic choices.</p>
+
+  <table class="term-table">
+    <thead>
+      <tr>
+        <th>Context</th>
+        <th class="term-use">Use</th>
+        <th class="term-avoid">Avoid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Company name — formal</td>
+        <td class="term-use">XY.AI Labs</td>
+        <td class="term-avoid">XYai · XYAI · XY.Ai</td>
+      </tr>
+      <tr>
+        <td>Company name — informal/social</td>
+        <td class="term-use">XY.ai</td>
+        <td class="term-avoid">xy.ai labs (all lowercase)</td>
+      </tr>
+      <tr>
+        <td>Technology type</td>
+        <td class="term-use">Compiled AI · AI-native</td>
+        <td class="term-avoid">LLM-at-runtime · chatbot · AI-powered</td>
+      </tr>
+      <tr>
+        <td>Automation framing</td>
+        <td class="term-use">Tasks, not jobs</td>
+        <td class="term-avoid">Replace jobs · Eliminate roles</td>
+      </tr>
+      <tr>
+        <td>Pricing model</td>
+        <td class="term-use">Flat-fee subscription</td>
+        <td class="term-avoid">Token-based · Usage-based billing</td>
+      </tr>
+      <tr>
+        <td>Market</td>
+        <td class="term-use">Long tail of healthcare · SMBs</td>
+        <td class="term-avoid">Enterprise · Mid-market (avoid as primary label)</td>
+      </tr>
+      <tr>
+        <td>Adjectives</td>
+        <td class="term-use">Precise · Grounded · AI-native</td>
+        <td class="term-avoid">Moonshot · Game-changing · Disruptive · 10x</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 05 LOGO -->
+<section class="section" id="logo">
+  <div class="section-label"><span class="num">05</span> Logo</div>
+  <h2 class="section-title">Four variants.<br>One system.</h2>
+  <p class="section-body">Custom geometric wordmark — XY.AI LABS. Tagline lockup: "The AI native company for healthcare." Use the correct variant for each background.</p>
+
+  <div class="logo-grid">
+    <div class="logo-card light">
+      <div style="font-size:28px;font-weight:900;letter-spacing:-0.03em;color:#000;">XY.AI<span style="font-size:14px;font-weight:600;letter-spacing:0.05em;margin-left:6px;">LABS</span></div>
+      <div style="font-size:11px;color:#999;margin-top:4px;">The AI native company for healthcare</div>
+      <div class="logo-label" style="color:#999">Black on White — primary</div>
+    </div>
+    <div class="logo-card dark">
+      <div style="font-size:28px;font-weight:900;letter-spacing:-0.03em;color:#fff;">XY.AI<span style="font-size:14px;font-weight:600;letter-spacing:0.05em;margin-left:6px;">LABS</span></div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">The AI native company for healthcare</div>
+      <div class="logo-label">White on Black — dark backgrounds</div>
+    </div>
+    <div class="logo-card grey">
+      <div style="font-size:28px;font-weight:900;letter-spacing:-0.03em;color:#000;">XY.AI<span style="font-size:14px;font-weight:600;letter-spacing:0.05em;margin-left:6px;">LABS</span></div>
+      <div class="logo-label" style="color:#999">Black — transparent (light surfaces)</div>
+    </div>
+    <div class="logo-card mid">
+      <div style="font-size:28px;font-weight:900;letter-spacing:-0.03em;color:#fff;">XY.AI<span style="font-size:14px;font-weight:600;letter-spacing:0.05em;margin-left:6px;">LABS</span></div>
+      <div class="logo-label">White — transparent (dark surfaces)</div>
+    </div>
+  </div>
+
+  <div class="logo-rules">
+    <div class="rule-block do">
+      <h4>Do</h4>
+      <ul>
+        <li>Use on high-contrast backgrounds</li>
+        <li>Maintain minimum clear space (height of "Y" on all sides)</li>
+        <li>Minimum width: 120px screen · 28mm print</li>
+        <li>Use provided PNG or SVG files only</li>
+      </ul>
+    </div>
+    <div class="rule-block dont">
+      <h4>Don't</h4>
+      <ul>
+        <li>Stretch, skew, or rotate the wordmark</li>
+        <li>Recolor the logo</li>
+        <li>Place on low-contrast backgrounds</li>
+        <li>Use below minimum size</li>
+        <li>Recreate the letterforms</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 06 COLOUR -->
+<section class="section" id="colour">
+  <div class="section-label"><span class="num">06</span> Colour</div>
+  <h2 class="section-title">Black. White.<br>The bot.</h2>
+  <p class="section-body">The brand is built on stark black and white. The iridescent bot gradient — blue, purple, orange — is the only accent. Use it for the mascot and motion assets only.</p>
+
+  <div class="colour-grid">
+    <div class="swatch s-black">
+      <div class="swatch-name">Black</div>
+      <div class="swatch-hex">#000000</div>
+      <div class="swatch-note">Primary · dark backgrounds · wordmark</div>
+    </div>
+    <div class="swatch s-white">
+      <div class="swatch-name">White</div>
+      <div class="swatch-hex">#FFFFFF</div>
+      <div class="swatch-note">Primary · light backgrounds · reverse wordmark</div>
+    </div>
+    <div class="swatch s-gradient">
+      <div class="swatch-name">Bot Gradient</div>
+      <div class="swatch-hex">#4B9EF5 → #A855F7 → #F97316</div>
+      <div class="swatch-note">Mascot only · never on text or backgrounds</div>
+    </div>
+    <div class="swatch s-blue">
+      <div class="swatch-name">Bot Blue</div>
+      <div class="swatch-hex">#4B9EF5</div>
+    </div>
+    <div class="swatch s-purple">
+      <div class="swatch-name">Bot Purple</div>
+      <div class="swatch-hex">#A855F7</div>
+    </div>
+    <div class="swatch s-orange">
+      <div class="swatch-name">Bot Orange</div>
+      <div class="swatch-hex">#F97316</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 TYPOGRAPHY -->
+<section class="section" id="typography">
+  <div class="section-label"><span class="num">07</span> Typography</div>
+  <h2 class="section-title">Clean.<br>Geometric.<br>Precise.</h2>
+  <p class="section-body">⚠️ Exact typeface and weights confirmed in the Figma Marketing XY.AI Labs file. The system below reflects the visual style observed across all brand assets.</p>
+
+  <div class="type-specimen">
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">Display / H1</div>
+        <div class="spec">Bold · tight tracking · −2%</div>
+      </div>
+      <div class="type-sample" style="font-size: 52px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;">AI-native.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">H2</div>
+        <div class="spec">Bold · tight tracking · −1.5%</div>
+      </div>
+      <div class="type-sample" style="font-size: 36px; font-weight: 700; letter-spacing: -0.015em;">Compiled AI, not LLM-at-runtime.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">H3</div>
+        <div class="spec">SemiBold · normal tracking</div>
+      </div>
+      <div class="type-sample" style="font-size: 22px; font-weight: 600;">Tasks, not jobs.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">Body</div>
+        <div class="spec">Regular · 0% tracking · 1.7 line-height</div>
+      </div>
+      <div class="type-sample" style="font-size: 16px; font-weight: 400; line-height: 1.7; color: #999; max-width: 480px;">XY.AI Labs builds compiled AI agents for the long tail of healthcare — flat-fee, trained at build time, not runtime.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">Caption / Label</div>
+        <div class="spec">Medium · +0.08em tracking · uppercase</div>
+      </div>
+      <div class="type-sample" style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #666;">XY.AI Labs · Brand Guidelines · 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 IMAGERY -->
+<section class="section" id="imagery">
+  <div class="section-label"><span class="num">08</span> Imagery</div>
+  <h2 class="section-title">The bot is<br>the hero.</h2>
+  <p class="section-body">The iridescent orb is XY.AI's primary visual asset. It represents the compiled AI agent — living, learning, in motion. Photography supports; the bot leads.</p>
+
+  <div class="bot-section">
+    <div class="bot-display">
+      <div style="width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,#4B9EF5 0%,#A855F7 50%,#F97316 100%);display:flex;align-items:center;justify-content:center;"><div style="display:flex;gap:12px;"><div style="width:18px;height:22px;background:#fff;border-radius:3px;"></div><div style="width:18px;height:22px;background:#fff;border-radius:3px;"></div></div></div>
+    </div>
+    <div>
+      <div class="imagery-card" style="margin-bottom: 2px;">
+        <h4>The Bot</h4>
+        <p>Iridescent sphere — blue, purple, orange. Used in hero positions, motion assets, and product UI. Never stretch, recolor, or crop the orb. It has two white "eye" slots — never obscure them.</p>
+      </div>
+      <div class="imagery-card" style="margin-bottom: 2px;">
+        <h4>Photography</h4>
+        <p>Real operational environments. Clinicians at work — not posed. No stethoscope + laptop stock photos. Data and interfaces are supporting characters, not hero images.</p>
+      </div>
+      <div class="imagery-card">
+        <h4>Compliance Badges</h4>
+        <p>SOC 2 (AICPA) + HIPAA Compliant — both certified. Use on product pages, sales decks, and footers. Never modify or recolor the badges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 MOTION -->
+<section class="section" id="motion">
+  <div class="section-label"><span class="num">09</span> Motion</div>
+  <h2 class="section-title">The bot<br>breathes.</h2>
+  <p class="section-body">Motion is used to bring the bot mascot to life. The iridescent orb rotates and pulses — suggesting intelligence in motion, not mechanical automation.</p>
+
+  <div class="motion-grid">
+    <div class="motion-card">
+      <div class="motion-icon">🎬</div>
+      <div>
+        <h4>Voice Interaction Animation</h4>
+        <p>MP4 — primary product demo asset. Bot responds to voice input. Use on landing pages and product walkthroughs. Do not speed up or slow down the motion.</p>
+      </div>
+    </div>
+    <div class="motion-card">
+      <div class="motion-icon">✨</div>
+      <div>
+        <h4>Bot Loop GIF</h4>
+        <p>Optimized GIF of the iridescent orb — for email, LinkedIn carousels, and lightweight embeds where video is not supported.</p>
+      </div>
+    </div>
+    <div class="motion-card">
+      <div class="motion-icon">🌀</div>
+      <div>
+        <h4>Principles</h4>
+        <p>Smooth, not flashy. The bot should feel like it's thinking — gentle rotation, soft pulse. No hard cuts. No fast spins. No mechanical repetition.</p>
+      </div>
+    </div>
+    <div class="motion-card">
+      <div class="motion-icon">📁</div>
+      <div>
+        <h4>Source Assets</h4>
+        <p>Raw MP4 + GIF files in Sam's Assets folder. Designer: Georgi (g.selivjorstov@gmail.com). Always use source files — never re-export from a compressed copy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 DO -->
+<section class="section" id="do">
+  <div class="section-label"><span class="num">10</span> Do</div>
+  <h2 class="section-title">What works.</h2>
+  <p class="section-body">Patterns that are on-brand across voice, structure, and visual. Repeat these.</p>
+
+  <div class="dodont-grid">
+    <div class="dodont-col do-col">
+      <div class="dodont-header do">Voice</div>
+      <div class="dodont-item"><span class="marker">✓</span>Open with personal experience or observation</div>
+      <div class="dodont-item"><span class="marker">✓</span>Use deliberate sentence fragments for emphasis</div>
+      <div class="dodont-item"><span class="marker">✓</span>Let one idea breathe per post</div>
+      <div class="dodont-item"><span class="marker">✓</span>Acknowledge the giants before you differentiate</div>
+      <div class="dodont-item"><span class="marker">✓</span>End on conviction or human stakes — not metrics</div>
+      <div class="dodont-item"><span class="marker">✓</span>Mix emotional language with operational data</div>
+    </div>
+    <div class="dodont-col do-col">
+      <div class="dodont-header do">Structure & Visual</div>
+      <div class="dodont-item"><span class="marker">✓</span>1–3 sentences per paragraph on LinkedIn</div>
+      <div class="dodont-item"><span class="marker">✓</span>Key declarative statements get their own line</div>
+      <div class="dodont-item"><span class="marker">✓</span>Anecdotes lead; insight follows</div>
+      <div class="dodont-item"><span class="marker">✓</span>Use black + white as primary palette</div>
+      <div class="dodont-item"><span class="marker">✓</span>Bot as visual hero — with breathing room</div>
+      <div class="dodont-item"><span class="marker">✓</span>Clean typographic layouts over complex infographics</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 DON'T -->
+<section class="section" id="dont">
+  <div class="section-label"><span class="num">11</span> Don't</div>
+  <h2 class="section-title">What breaks<br>the brand.</h2>
+  <p class="section-body">Anti-patterns. Any of these in a draft is a flag — stop and rewrite before it goes to Sam.</p>
+
+  <div class="dodont-grid">
+    <div class="dodont-col dont-col">
+      <div class="dodont-header dont">Voice</div>
+      <div class="dodont-item"><span class="marker">✕</span>"Moonshot," "game-changing," "disruptive," "10x"</div>
+      <div class="dodont-item"><span class="marker">✕</span>Dry or academic register — no abstraction without stakes</div>
+      <div class="dodont-item"><span class="marker">✕</span>"Not because X, but because Y" sentence structure</div>
+      <div class="dodont-item"><span class="marker">✕</span>Explicit CTA — "What do you think?" / "Drop a comment"</div>
+      <div class="dodont-item"><span class="marker">✕</span>Mixing two subjects in one post</div>
+      <div class="dodont-item"><span class="marker">✕</span>Token maxing in thought leadership posts</div>
+    </div>
+    <div class="dodont-col dont-col">
+      <div class="dodont-header dont">Visual & Topic</div>
+      <div class="dodont-item"><span class="marker">✕</span>Partner names (CollabMD) in thought leadership</div>
+      <div class="dodont-item"><span class="marker">✕</span>Headers or bold blocks in LinkedIn posts</div>
+      <div class="dodont-item"><span class="marker">✕</span>Generic AI imagery (glowing brains, neural nets)</div>
+      <div class="dodont-item"><span class="marker">✕</span>Stock healthcare photography (stethoscope + laptop)</div>
+      <div class="dodont-item"><span class="marker">✕</span>Recoloring or stretching the bot or logo</div>
+      <div class="dodont-item"><span class="marker">✕</span>Repeating topics Sam has already published on</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 SIGN-OFF -->
+<section class="section" id="signoff">
+  <div class="signoff-inner">
+    <div class="section-label"><span class="num">12</span> Sign-off</div>
+    <h2 class="section-title">Living<br>document.</h2>
+    <p class="section-body">Seeded by Agathe (Modjo) from Sam's calls, content, and public presence. Items below require Sam's confirmation before they are locked.</p>
+
+    <div class="pending-list">
+      <div class="pending-item">
+        <span class="status status-done">Done</span>
+        <div class="item-text">Logo variants (4 files) — black/white, with and without background</div>
+      </div>
+      <div class="pending-item">
+        <span class="status status-done">Done</span>
+        <div class="item-text">Bot mascot — PNG + GIF + MP4 voice animation</div>
+      </div>
+      <div class="pending-item">
+        <span class="status status-done">Done</span>
+        <div class="item-text">SOC 2 + HIPAA compliance badges</div>
+      </div>
+      <div class="pending-item">
+        <span class="status status-pending">Pending</span>
+        <div class="item-text">Exact typeface name + weights (check Figma: Marketing XY.AI Labs)</div>
+      </div>
+      <div class="pending-item">
+        <span class="status status-pending">Pending</span>
+        <div class="item-text">Agent product names (use "compiled agent" until confirmed)</div>
+      </div>
+      <div class="pending-item">
+        <span class="status status-pending">Pending</span>
+        <div class="item-text">Photo of Sam with May Habib — for May 11 post</div>
+      </div>
+      <div class="pending-item">
+        <span class="status status-pending">Pending</span>
+        <div class="item-text">SAP analytics access for reach optimization</div>
+      </div>
+    </div>
+
+    <div class="footer-line">
+      <span>XY.AI Labs Brand Guidelines · Built by Agathe @ Modjo</span>
+      <span>Last updated: May 14, 2026</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+  // Active nav highlighting on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.sidebar a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
