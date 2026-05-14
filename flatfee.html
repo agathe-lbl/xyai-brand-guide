@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flat-Fee vs Token Billing — XY.AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    width: 1080px;
+    height: 1080px;
+    background: #ffffff;
+    border: 2px solid #111;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 48px 28px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .top-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #999;
+  }
+
+  .wordmark {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #111;
+  }
+
+  /* ── COLUMNS AREA ── */
+  .cols {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+
+  /* vertical divider */
+  .cols::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1.5px;
+    background: #e0e0e0;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 52px 24px;
+    position: relative;
+  }
+
+  /* ── COL LABELS ── */
+  .col-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    align-self: flex-start;
+  }
+
+  .col-token .col-label { color: #C0392B; }
+  .col-flat .col-label  { color: #0A1F44; }
+
+  /* ── SVG DIAGRAMS ── */
+  .diagram {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 36px;
+  }
+
+  /* ── COL CAPTION ── */
+  .col-caption {
+    font-size: 13px;
+    color: #777;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 200px;
+  }
+
+  .col-caption strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+    color: #111;
+  }
+
+  .col-token .col-caption strong { color: #C0392B; }
+  .col-flat  .col-caption strong { color: #0A1F44; }
+
+  /* ── BOTTOM HEADLINE ── */
+  .bottom {
+    border-top: 1.5px solid #111;
+    padding: 28px 48px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .headline {
+    font-size: 32px;
+    font-weight: 900;
+    color: #111;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    max-width: 580px;
+  }
+
+  .headline span {
+    color: #0A1F44;
+  }
+
+  .bottom-right {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 32px;
+  }
+
+  .xy-logo-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #111;
+  }
+
+  .xy-logo-sub {
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 3px;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-label">Pricing model · AI Healthcare</div>
+    <div class="wordmark">XY.AI LABS</div>
+  </div>
+
+  <!-- TWO COLUMNS -->
+  <div class="cols">
+
+    <!-- LEFT — TOKEN BILLING -->
+    <div class="col col-token">
+      <div class="col-label">Token Billing</div>
+
+      <!-- Circular drain SVG -->
+      <svg class="diagram" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer circle -->
+        <circle cx="110" cy="110" r="96" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.25"/>
+
+        <!-- Circular arrow path — clockwise loop -->
+        <!-- Top arc going right -->
+        <path d="M 110 30 A 80 80 0 0 1 190 110" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <polygon points="190,110 183,98 197,97" fill="#C0392B"/>
+
+        <!-- Right arc going down -->
+        <path d="M 190 110 A 80 80 0 0 1 110 190" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <polygon points="110,190 98,183 97,197" fill="#C0392B"/>
+
+        <!-- Bottom arc going left -->
+        <path d="M 110 190 A 80 80 0 0 1 30 110" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <polygon points="30,110 43,98 43,122" fill="#C0392B"/>
+
+        <!-- Left arc going up -->
+        <path d="M 30 110 A 80 80 0 0 1 110 30" stroke="#C0392B" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <polygon points="110,30 98,43 122,43" fill="#C0392B"/>
+
+        <!-- Center labels -->
+        <text x="110" y="96" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#C0392B" font-weight="600" letter-spacing="1">PAY</text>
+        <text x="110" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#999">↓ tokens ↓</text>
+        <text x="110" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#C0392B" font-weight="600" letter-spacing="1">MORE</text>
+
+        <!-- Node dots on circle -->
+        <circle cx="110" cy="30" r="5" fill="#C0392B"/>
+        <circle cx="190" cy="110" r="5" fill="#C0392B"/>
+        <circle cx="110" cy="190" r="5" fill="#C0392B"/>
+        <circle cx="30" cy="110" r="5" fill="#C0392B"/>
+
+        <!-- Labels at nodes -->
+        <text x="110" y="18" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#999">$ in</text>
+        <text x="205" y="114" text-anchor="start" font-family="Inter,sans-serif" font-size="9" fill="#999">tokens</text>
+        <text x="110" y="208" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#999">more spend</text>
+        <text x="15" y="114" text-anchor="end" font-family="Inter,sans-serif" font-size="9" fill="#999">$ out</text>
+      </svg>
+
+      <div class="col-caption">
+        <strong>Endless cycle.</strong>
+        Every document, every prior auth — adds to the count. Volume grows, so does the bill.
+      </div>
+    </div>
+
+    <!-- RIGHT — FLAT FEE -->
+    <div class="col col-flat">
+      <div class="col-label">Flat-Fee</div>
+
+      <!-- Linear → ∞ SVG -->
+      <svg class="diagram" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Step 1: Record -->
+        <rect x="10" y="68" width="56" height="36" rx="4" stroke="#0A1F44" stroke-width="1.5"/>
+        <text x="38" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#0A1F44" font-weight="700" letter-spacing="0.5">RECORD</text>
+        <text x="38" y="96" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="#888">once</text>
+
+        <!-- Arrow -->
+        <line x1="66" y1="86" x2="82" y2="86" stroke="#0A1F44" stroke-width="1.5" stroke-linecap="round"/>
+        <polygon points="82,86 76,82 76,90" fill="#0A1F44"/>
+
+        <!-- Step 2: Run -->
+        <rect x="82" y="68" width="56" height="36" rx="4" stroke="#0A1F44" stroke-width="1.5"/>
+        <text x="110" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#0A1F44" font-weight="700" letter-spacing="0.5">RUN</text>
+        <text x="110" y="96" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="#888">10× or 10,000×</text>
+
+        <!-- Arrow -->
+        <line x1="138" y1="86" x2="152" y2="86" stroke="#0A1F44" stroke-width="1.5" stroke-linecap="round"/>
+        <polygon points="152,86 146,82 146,90" fill="#0A1F44"/>
+
+        <!-- Infinity symbol -->
+        <text x="166" y="93" text-anchor="middle" font-family="Inter,sans-serif" font-size="42" fill="#0A1F44" font-weight="900">∞</text>
+
+        <!-- "same cost" below infinity -->
+        <text x="166" y="120" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#0A1F44" font-weight="600" letter-spacing="1">SAME COST</text>
+
+        <!-- Dollar sign input above -->
+        <text x="38" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#888">$ in — once</text>
+        <line x1="38" y1="60" x2="38" y2="68" stroke="#0A1F44" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/>
+
+        <!-- Flat line below showing stable cost -->
+        <line x1="10" y1="148" x2="210" y2="148" stroke="#0A1F44" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="10" y="162" font-family="Inter,sans-serif" font-size="8" fill="#888">cost</text>
+        <circle cx="10" cy="148" r="3" fill="#0A1F44"/>
+        <circle cx="60" cy="148" r="3" fill="#0A1F44"/>
+        <circle cx="110" cy="148" r="3" fill="#0A1F44"/>
+        <circle cx="160" cy="148" r="3" fill="#0A1F44"/>
+        <circle cx="210" cy="148" r="3" fill="#0A1F44"/>
+
+        <text x="10" y="175" font-family="Inter,sans-serif" font-size="8.5" fill="#999">Jan</text>
+        <text x="57" y="175" font-family="Inter,sans-serif" font-size="8.5" fill="#999">Mar</text>
+        <text x="105" y="175" font-family="Inter,sans-serif" font-size="8.5" fill="#999">Jun</text>
+        <text x="155" y="175" font-family="Inter,sans-serif" font-size="8.5" fill="#999">Sep</text>
+        <text x="203" y="175" font-family="Inter,sans-serif" font-size="8.5" fill="#999">Dec</text>
+      </svg>
+
+      <div class="col-caption">
+        <strong>One price. Forever.</strong>
+        Record the workflow once. Run it ten times or ten thousand — the number doesn't move.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM HEADLINE -->
+  <div class="bottom">
+    <div class="headline">You pay once.<br><span>The rest runs forever.</span></div>
+    <div class="bottom-right">
+      <div class="xy-logo-text">XY.AI LABS</div>
+      <div class="xy-logo-sub">Sam De Brouwer</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
