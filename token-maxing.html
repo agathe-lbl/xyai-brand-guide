@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Token Maxing vs Compiled AI — XY.AI</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -18,98 +18,249 @@
     padding: 40px;
   }
 
-  /* ── OUTER CARD — gradient fill like health.com blue ── */
-  .card {
+  /* ── OUTER FRAME ── */
+  .frame {
     width: 1080px;
     height: 1080px;
-    background: linear-gradient(135deg, #4B9EF5 0%, #7B6EF5 50%, #A855F7 100%);
+    background: #0a0a0a;
+    border: 2.5px solid #222;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
-  }
-
-  /* ── INNER DARK BORDER FRAME — exactly like health.com ── */
-  .inner-frame {
-    width: 100%;
-    height: 100%;
-    border: 10px solid rgba(10, 10, 40, 0.85);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    padding: 64px 72px 56px;
+    overflow: hidden;
+  }
+
+  /* Gradient accent — top right corner */
+  .frame::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(75,158,245,0.18) 0%, rgba(168,85,247,0.12) 40%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Inner border inset */
+  .frame::after {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border: 1px solid #1f1f1f;
+    pointer-events: none;
+  }
+
+  /* ── TOP ROW ── */
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .wordmark {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #fff;
+    opacity: 0.9;
+  }
+
+  /* ── MIDDLE — hero text ── */
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     position: relative;
-    padding: 60px 72px;
+    z-index: 2;
+    margin: 48px 0 32px;
   }
 
-  /* ── EYEBROW ── */
   .eyebrow {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 48px;
-    text-align: center;
+    color: #4B9EF5;
+    margin-bottom: 28px;
   }
 
-  /* ── MAIN TEXT ── */
-  .main-text {
-    font-size: 86px;
+  .headline {
+    font-size: 68px;
     font-weight: 900;
-    color: #ffffff;
-    text-align: center;
-    line-height: 1.0;
-    letter-spacing: -2.5px;
+    line-height: 1.02;
+    color: #fff;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
   }
 
-  /* ── DIVIDER ── */
-  .divider {
-    width: 60px;
-    height: 3px;
-    background: rgba(255,255,255,0.4);
-    margin: 48px auto;
-    border-radius: 2px;
+  .headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, #4B9EF5 0%, #A855F7 55%, #F97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* ── SECONDARY TEXT ── */
-  .secondary-text {
-    font-size: 86px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.92);
-    text-align: center;
-    line-height: 1.0;
-    letter-spacing: -2.5px;
+  /* ── DIVIDER LINE ── */
+  .rule {
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(90deg, #4B9EF5, #A855F7, #F97316);
+    margin-bottom: 40px;
+    opacity: 0.6;
   }
 
-  /* ── WORDMARK ── */
-  .wordmark {
-    position: absolute;
-    bottom: 28px;
-    right: 36px;
-    font-size: 13px;
+  /* ── TWO COLUMNS ── */
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .col {
+    border-top: 1px solid #2a2a2a;
+    padding-top: 24px;
+  }
+
+  .col-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .col.token .col-tag { color: #A855F7; }
+  .col.compiled .col-tag { color: #4B9EF5; }
+
+  .col-title {
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: 3px;
-    color: rgba(255,255,255,0.7);
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .col-body {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #888;
+  }
+
+  .col-body strong {
+    color: #ccc;
+    font-weight: 600;
+  }
+
+  /* ── BOTTOM ROW ── */
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+    margin-top: 48px;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 28px;
+  }
+
+  .bottom-quote {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  .bottom-quote strong {
+    color: #888;
+    font-style: normal;
+  }
+
+  .bottom-right {
+    text-align: right;
+  }
+
+  .sam-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #777;
+    letter-spacing: 0.5px;
+  }
+
+  .sam-role {
+    font-size: 11px;
+    color: #444;
+    margin-top: 3px;
   }
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="inner-frame">
+<div class="frame">
 
-    <div class="eyebrow">AI Architecture · XY.AI Labs</div>
-
-    <div class="main-text">Research<br>is where<br>you token<br>max.</div>
-
-    <div class="divider"></div>
-
-    <div class="secondary-text">Operations<br>is where<br>you codify.</div>
-
+  <!-- TOP -->
+  <div class="top-row">
+    <div class="label">AI Architecture · Healthcare</div>
     <div class="wordmark">XY.AI LABS</div>
-
   </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">The distinction that matters</div>
+    <div class="headline">Research is where<br>you <em>token max.</em><br>Operations is where<br>you <em>codify.</em></div>
+    <div class="rule"></div>
+  </div>
+
+  <!-- TWO COLUMNS -->
+  <div class="cols">
+    <div class="col token">
+      <div class="col-tag">Token Maxing</div>
+      <div class="col-title">R&amp;D &amp; pushing the edge</div>
+      <div class="col-body">
+        When we're researching, we token max. <strong>That's how you build good AI.</strong>
+        But the bill scales with usage — 10k documents becomes 30k, and the cost follows.
+        It's buried in the fine print.
+      </div>
+    </div>
+    <div class="col compiled">
+      <div class="col-tag">Compiled AI</div>
+      <div class="col-title">Operations &amp; predictable costs</div>
+      <div class="col-body">
+        Healthcare practices need to know what they're paying. <strong>The margin isn't there for surprises.</strong>
+        Safety, governance, regulation — codify those.
+        Some decisions model-driven. Knowing which is which is the real work.
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom-row">
+    <div class="bottom-quote">
+      "The operators who understand this distinction will build AI that lasts.
+      <strong>The ones who don't will keep paying for the confusion.</strong>"
+    </div>
+    <div class="bottom-right">
+      <div class="sam-name">Sam De Brouwer</div>
+      <div class="sam-role">CEO, XY.AI Labs</div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>
