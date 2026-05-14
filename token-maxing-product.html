@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Token Maxing — XY.AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1080px;
+    background: #0A1628;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 88px 72px;
+    overflow: hidden;
+  }
+
+  /* Subtle radial glow top */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(75,158,245,0.15) 0%, rgba(168,85,247,0.06) 40%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── TOP HEADLINE ── */
+  .headline-top {
+    font-size: 78px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.0;
+    letter-spacing: -2.5px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .accent {
+    background: linear-gradient(90deg, #4B9EF5, #A855F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── MIDDLE CHART CARD ── */
+  .chart-card {
+    width: 100%;
+    height: 440px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 32px 44px 28px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .chart-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 18px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .legend-dot.token { background: #E57373; }
+  .legend-dot.flat  { background: #4B9EF5; }
+
+  /* SVG chart fills remaining space */
+  .chart-svg {
+    flex: 1;
+    width: 100%;
+  }
+
+  /* ── BOTTOM HEADLINE ── */
+  .headline-bottom {
+    font-size: 78px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.0;
+    letter-spacing: -2.5px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── WORDMARK ── */
+  .wordmark {
+    position: absolute;
+    bottom: 24px;
+    right: 36px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- TOP -->
+  <div class="headline-top">
+    Stop paying<br>by <span class="accent">token.</span>
+  </div>
+
+  <!-- MIDDLE CHART -->
+  <div class="chart-card">
+    <div class="chart-header">
+      <div class="chart-title">Cost as workflow volume scales</div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot token"></div>Token billing</div>
+        <div class="legend-item"><div class="legend-dot flat"></div>XY.AI flat-fee</div>
+      </div>
+    </div>
+
+    <svg class="chart-svg" viewBox="0 0 900 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grid lines -->
+      <line x1="60" y1="40"  x2="880" y2="40"  stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <line x1="60" y1="100" x2="880" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <line x1="60" y1="160" x2="880" y2="160" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <line x1="60" y1="220" x2="880" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+      <line x1="60" y1="280" x2="880" y2="280" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+      <!-- Y axis label -->
+      <text x="20" y="44" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="10" font-weight="500">$$$$</text>
+      <text x="20" y="164" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="10" font-weight="500">$$$</text>
+      <text x="20" y="284" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="10" font-weight="500">$</text>
+
+      <!-- X axis labels -->
+      <text x="60"  y="305" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="11" font-weight="500" text-anchor="middle">100</text>
+      <text x="265" y="305" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="11" font-weight="500" text-anchor="middle">1k</text>
+      <text x="470" y="305" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="11" font-weight="500" text-anchor="middle">10k</text>
+      <text x="675" y="305" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="11" font-weight="500" text-anchor="middle">50k</text>
+      <text x="855" y="305" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-size="11" font-weight="500" text-anchor="middle">workflows/mo</text>
+
+      <!-- TOKEN curve (exponential up) — gradient stroke -->
+      <defs>
+        <linearGradient id="tokenGrad" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#E57373" stop-opacity="0.05"/>
+          <stop offset="100%" stop-color="#E57373" stop-opacity="0.4"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Area under token curve -->
+      <path d="M 60 275 Q 200 270 265 255 Q 350 235 470 175 Q 580 110 675 60 L 855 25 L 855 280 L 60 280 Z"
+            fill="url(#tokenGrad)"/>
+
+      <!-- Token line -->
+      <path d="M 60 275 Q 200 270 265 255 Q 350 235 470 175 Q 580 110 675 60 L 855 25"
+            stroke="#E57373" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+      <!-- Token dots -->
+      <circle cx="60"  cy="275" r="5" fill="#E57373"/>
+      <circle cx="265" cy="255" r="5" fill="#E57373"/>
+      <circle cx="470" cy="175" r="5" fill="#E57373"/>
+      <circle cx="675" cy="60"  r="5" fill="#E57373"/>
+      <circle cx="855" cy="25"  r="6" fill="#E57373"/>
+
+      <!-- Token label -->
+      <text x="820" y="20" fill="#E57373" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="end">↑ scales with you</text>
+
+      <!-- FLAT line -->
+      <line x1="60" y1="245" x2="855" y2="245" stroke="#4B9EF5" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Flat dots -->
+      <circle cx="60"  cy="245" r="5" fill="#4B9EF5"/>
+      <circle cx="265" cy="245" r="5" fill="#4B9EF5"/>
+      <circle cx="470" cy="245" r="5" fill="#4B9EF5"/>
+      <circle cx="675" cy="245" r="5" fill="#4B9EF5"/>
+      <circle cx="855" cy="245" r="6" fill="#4B9EF5"/>
+
+      <!-- Flat label -->
+      <text x="820" y="232" fill="#4B9EF5" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="end">→ same, every month</text>
+    </svg>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="headline-bottom">
+    Start paying<br>by <span class="accent">outcome.</span>
+  </div>
+
+  <div class="wordmark">XY.AI LABS</div>
+</div>
+</body>
+</html>
