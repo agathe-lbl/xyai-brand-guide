@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Origin V-C Timeline — XY.AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Maven Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1C1917;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1080px;
+    background: #1C1917;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 72px 80px;
+    overflow: hidden;
+  }
+
+  /* Subtle radial behind timeline */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255, 0, 212, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── TOP ── */
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+  }
+
+  .wordmark {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #FFFFFF;
+  }
+
+  .wordmark-dot {
+    color: #FFCC00;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* ── HERO HEADING ── */
+  .heading {
+    margin-top: 50px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #FF00D4;
+    margin-bottom: 22px;
+  }
+
+  .title {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    color: #FFFFFF;
+  }
+
+  .title em {
+    font-style: normal;
+    color: #FFCC00;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    z-index: 2;
+    margin: 30px 0 50px;
+    padding: 0 10px;
+  }
+
+  .axis {
+    position: relative;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.4) 50%, #FFCC00 100%);
+    margin: 0 40px;
+  }
+
+  .nodes {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: -10px 0 0;
+  }
+
+  .node {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #1C1917;
+    flex-shrink: 0;
+    margin-top: -5px;
+  }
+
+  .node.now {
+    background: #FFCC00;
+    width: 22px;
+    height: 22px;
+    margin-top: -7px;
+    box-shadow: 0 0 0 6px rgba(255, 204, 0, 0.2);
+  }
+
+  /* Labels above nodes */
+  .years {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 0 14px;
+  }
+
+  .year {
+    font-size: 13px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  .year:first-child { text-align: left; padding-left: 30px; }
+  .year:last-child  { color: #FFCC00; text-align: right; padding-right: 30px; }
+
+  /* Captions below */
+  .captions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 28px;
+    gap: 16px;
+  }
+
+  .caption {
+    text-align: center;
+  }
+
+  .caption:first-child { text-align: left; }
+  .caption:last-child  { text-align: right; }
+
+  .caption .what {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .caption .meta {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.45;
+  }
+
+  .caption:last-child .meta { color: rgba(255, 204, 0, 0.85); }
+
+  /* ── BOTTOM SLOGAN ── */
+  .bottom {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 28px;
+  }
+
+  .slogan-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .slogan {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    color: #FFFFFF;
+    line-height: 1.0;
+  }
+
+  .slogan .accent {
+    background: linear-gradient(90deg, #FF00D4 0%, #B377E8 50%, #EA580C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .attribution {
+    margin-top: 22px;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+  }
+
+  .attribution strong {
+    color: rgba(255,255,255,0.7);
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- TOP -->
+  <div class="top-row">
+    <div class="wordmark">xy<span class="wordmark-dot">.</span>ai</div>
+    <div class="eyebrow">Origin · 15 years · two channels</div>
+  </div>
+
+  <!-- HEADING -->
+  <div class="heading">
+    <div class="label">The arc</div>
+    <div class="title">Always shipping.<br>Always <em>speaking.</em></div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline">
+    <div class="years">
+      <div class="year">2010s</div>
+      <div class="year">2018</div>
+      <div class="year">2025</div>
+      <div class="year">2026</div>
+    </div>
+    <div class="axis" style="margin: 0 30px;"></div>
+    <div class="nodes" style="margin: -10px 22px 0;">
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node"></div>
+      <div class="node now"></div>
+    </div>
+    <div class="captions">
+      <div class="caption">
+        <div class="what">Sydney Health</div>
+        <div class="meta">at Anthem · shipping + shaping the conversation</div>
+      </div>
+      <div class="caption">
+        <div class="what">doc.ai · Scanadu</div>
+        <div class="meta">building substrate · public discourse</div>
+      </div>
+      <div class="caption">
+        <div class="what">Curated TED AI SF</div>
+        <div class="meta">stage as substrate-of-ideas</div>
+      </div>
+      <div class="caption">
+        <div class="what">TED AI 2026 + xy.ai engine</div>
+        <div class="meta">14 agents · 1 platform · 0 LLMs at runtime</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+    <div class="slogan-eyebrow">Two channels · one conviction</div>
+    <div class="slogan">TED AI <em style="color:#FFCC00; font-style:normal;">speaks.</em><br>XY.AI <span class="accent">acts.</span></div>
+    <div class="attribution"><strong>Sam De Brouwer</strong>   ·   CEO, XY.AI Labs   ·   SOC 2 · HIPAA</div>
+  </div>
+
+</div>
+</body>
+</html>
