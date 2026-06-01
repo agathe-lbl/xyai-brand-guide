@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>xy.ai · Continuous learning · V-A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --blue: #4B9EF5;
+    --purple: #A855F7;
+    --frost: #F3F4F6;
+    --bluetint: rgba(75,158,245,0.07);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); }
+  body {
+    width: 1080px; height: 1080px;
+    font-family: "Comfortaa", "Helvetica Neue", system-ui, sans-serif;
+    color: var(--ink);
+    position: relative;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+  .ico { font-family: "Helvetica Neue", system-ui, sans-serif; }
+
+  /* TOP ROW */
+  .wordmark {
+    position: absolute; top: 110px; left: 125px;
+    font-weight: 500; font-size: 22px; letter-spacing: 6px; color: var(--ink);
+  }
+  .wordmark .dot { color: var(--purple); }
+  .eyebrow-tr {
+    position: absolute; top: 116px; right: 125px;
+    font-size: 11px; letter-spacing: 3px; color: var(--muted); font-weight: 500;
+  }
+
+  /* SECTION LABEL */
+  .kicker {
+    position: absolute; top: 250px; left: 125px;
+    font-size: 12px; letter-spacing: 3px; color: var(--purple); font-weight: 700;
+  }
+
+  /* TWO CARDS */
+  .card {
+    position: absolute; top: 300px;
+    width: 366px; height: 300px;
+    border-radius: 22px;
+    padding: 40px 38px;
+  }
+  .card .ico { font-size: 46px; line-height: 1; display: block; margin-bottom: 26px; }
+  .card .label {
+    font-size: 25px; font-weight: 700; letter-spacing: 2px; margin-bottom: 22px;
+  }
+  .card .line { font-size: 19px; font-weight: 500; line-height: 1.7; }
+
+  /* LEFT — Intelligence (static / frozen) */
+  .card.left {
+    left: 125px;
+    background: var(--frost);
+    border: 1px solid var(--line);
+  }
+  .card.left .ico { color: var(--muted); }
+  .card.left .label { color: var(--ink); }
+  .card.left .line { color: var(--muted); }
+
+  /* RIGHT — Learning (continuous / compounding) */
+  .card.right {
+    right: 125px;
+    background: var(--bluetint);
+    border: 2px solid var(--blue);
+    box-shadow: 0 18px 50px -22px rgba(75,158,245,0.55);
+  }
+  .card.right .ico { color: var(--blue); }
+  .card.right .label { color: var(--blue); }
+  .card.right .line { color: var(--ink); }
+
+  /* VS pill between cards */
+  .vs {
+    position: absolute; top: 426px; left: 540px; transform: translateX(-50%);
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--bg); border: 1px solid var(--line);
+    text-align: center; line-height: 48px;
+    font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--muted);
+    z-index: 3;
+  }
+
+  /* TAGLINE (the punch) */
+  .tag1, .tag2 {
+    position: absolute; left: 0; right: 0; text-align: center;
+    font-size: 47px; line-height: 1.05; font-weight: 700; letter-spacing: -1px;
+    color: var(--ink);
+  }
+  .tag1 { top: 712px; }
+  .tag2 { top: 772px; }
+  .tag2 .accent { color: var(--purple); }
+
+  /* FOOTER */
+  .divider {
+    position: absolute; top: 900px; left: 125px; right: 125px;
+    height: 1px; background: var(--line);
+  }
+  .eyebrow-b {
+    position: absolute; top: 936px; left: 0; right: 0; text-align: center;
+    font-size: 11px; letter-spacing: 3px; color: var(--muted); font-weight: 500;
+  }
+  .conv1, .conv2 {
+    position: absolute; left: 0; right: 0; text-align: center;
+    font-size: 34px; line-height: 1.0; font-weight: 700; letter-spacing: -0.5px; color: var(--ink);
+  }
+  .conv1 { top: 968px; }
+  .conv1 .accent { color: var(--blue); }
+  .sam {
+    position: absolute; top: 1034px; left: 0; right: 0; text-align: center; font-size: 11px;
+  }
+  .sam .name { color: var(--ink); font-weight: 700; }
+  .sam .cred { color: var(--muted); font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="wordmark">x y<span class="dot">.</span>a i</div>
+  <div class="eyebrow-tr">MISSION · CONTINUOUS LEARNING</div>
+
+  <div class="kicker">INTELLIGENCE vs LEARNING</div>
+
+  <div class="card left">
+    <span class="ico">&#10052;</span>
+    <div class="label">INTELLIGENCE</div>
+    <div class="line">Static snapshot.</div>
+    <div class="line">Expires.</div>
+  </div>
+
+  <div class="card right">
+    <span class="ico">&#8635;</span>
+    <div class="label">LEARNING</div>
+    <div class="line">Continuous loop.</div>
+    <div class="line">Compounds.</div>
+  </div>
+
+  <div class="vs">vs</div>
+
+  <div class="tag1">Intelligence is a moment.</div>
+  <div class="tag2">Learning is <span class="accent">the architecture.</span></div>
+
+  <div class="divider"></div>
+  <div class="eyebrow-b">ONE CONVICTION</div>
+  <div class="conv1">Don&rsquo;t ship intelligence. Build the <span class="accent">loop.</span></div>
+  <div class="sam"><span class="name">Sam De Brouwer</span> <span class="cred">· CEO, XY.AI Labs · SOC 2 · HIPAA</span></div>
+</body>
+</html>
